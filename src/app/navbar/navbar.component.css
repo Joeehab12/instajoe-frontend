@@ -1,0 +1,61 @@
+@font-face {
+    font-family: Billabong;
+    /*font-style: normal;
+    font-weight: 400;*/
+    src: url(../../fonts/Billabong.ttf);
+}
+.material-icons-new {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.icon-white {
+    webkit-filter: contrast(4) invert(1);
+    -moz-filter: contrast(4) invert(1);
+    -o-filter: contrast(4) invert(1);
+    -ms-filter: contrast(4) invert(1);
+    filter: contrast(4) invert(1);
+}
+.logo{
+    color:#777;
+    font-family: Billabong;
+    font-size: 20pt;
+    /*line-height: 50px;*/
+}
+body{
+    background-color: #fafafa;
+}
+.navbar ul{
+    /*padding:0;*/
+    margin:0;
+    list-style-type: none;
+}
+a,a:hover,a:focus{
+    color:#000;
+    text-decoration: none;
+}
+ul{
+    overflow: hidden;
+}
+.navbar{
+    /*margin-top: 20px;*/
+    text-align: center;
+    /* height: 50px; */
+}
+.border{
+    height: 40px;
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-left: 1px solid;
+}
+.item{
+    padding:20px;
+}
+.search{
+    width:250px;
+    /*padding: 15px 10px;*/
+}

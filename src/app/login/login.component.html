@@ -1,0 +1,47 @@
+<div class="content">
+  <div class="outer-container">
+    <div class="container">
+      <form #loginForm="ngForm" name="form" novalidate>
+
+        <div class="row">
+
+          <div class="twelve columns">
+            <h5 id="welcome" for="email">Instajoe</h5>
+            <input  name="email" [email]="email !== ''" [class.has-error]="email_ref.invalid && email_ref.touched" [class.has-success]="email_ref.valid" class="u-full-width" type="text" placeholder="Email" id="email"
+              required [(ngModel)]="email" #email_ref = "ngModel" #spy>
+            <span class = "validation-message" *ngIf="email_ref.errors?.required && email_ref.touched">
+              Email is required.
+            </span>
+            <span class = "validation-message" *ngIf="email_ref.errors?.email && email_ref.touched">
+              Please provide a valid email.
+            </span>
+            <!-- <p class="email-message" ng-show="form.email.$invalid">Please enter a valid email.</p> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input [(ngModel)]="password" #password_ref="ngModel" name="password" class="u-full-width" type="password" placeholder="Password"
+              id="password" required minlength = "5"  [class.has-error]="password_ref.invalid && password_ref.touched" [class.has-success]="password_ref.valid">
+            <!-- <p class="password-message" ng-show="form.password.$error.minlength">Password must be at least 5 characters
+              long.</p> -->
+              <span class = "validation-message"  *ngIf="password_ref.errors?.minlength && password_ref.touched">
+                Password must be at least 5 characters long.
+              </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            
+            <!-- <label class="message">{{$ctrl.errorMessage}}</label> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input id="login" (click) = "myEvent()" class="button-primary" [disabled]="loginForm.invalid" type="submit" value="login">
+            <a routerLink="register"> Not a member? Signup here </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
