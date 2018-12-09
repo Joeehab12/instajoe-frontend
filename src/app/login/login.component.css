@@ -76,7 +76,7 @@ a{
     color: white;
 }
 @media (max-width:745px){
-    body{
-        background-size:auto;
+    .content{
+        background-size:cover;
     }
 }

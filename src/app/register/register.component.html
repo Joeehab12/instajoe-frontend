@@ -1,3 +1,52 @@
-<p>
-  register works!
-</p>
+<div class="content">
+  <div class="outer-container">
+    <div class="container">
+      <form #registerForm="ngForm" novalidate>
+        <div class="email">
+          <!-- <div class="four columns offset-by-six"> -->
+          <h5 id="welcome" for="email">Instajoe</h5>
+          <input [email]="email !== ''" [(ngModel)]="email" #email_ref="ngModel" [class.has-error]="email_ref.invalid && email_ref.touched"
+            [class.has-success]="email_ref.valid" name="email"  class="u-full-width" type="email"
+            placeholder="Email" id="email" required>
+          <p *ngIf="email_ref.errors?.required && email_ref.touched" class="help-block">Email is required.</p>
+          <p *ngIf="email_ref.errors?.email && email_ref.touched" class="help-block">Please enter a valid Email.</p>
+          <!-- </div> -->
+        </div>
+        <div class="fullName">
+          <!-- <label for="password">Your password</label> -->
+          <input [(ngModel)]="fullName" #fullName_ref="ngModel" [class.has-error]="fullName_ref.invalid && fullName_ref.touched"
+            [class.has-success]="fullName_ref.valid" name="fullName" class="u-full-width" type="text"
+            placeholder="Full Name" id="fullName" required>
+          <p *ngIf="fullName_ref.errors?.required && fullName_ref.touched" class="help-block">Your full
+            name is required</p>
+        </div>
+        <div class="username">
+          <!-- <label for="password">Your password</label> -->
+          <input [(ngModel)]="username" #username_ref="ngModel" [class.has-error]="username_ref.invalid && username_ref.touched"
+          [class.has-success]="username_ref.valid"  name="username" minlength="5" class="u-full-width" type="text" placeholder="Username"
+            id="username" required>
+          <p *ngIf="username_ref.errors?.minlength && username_ref.touched" class="help-block">Username must be at
+            least 5 characters long.</p>
+          <p *ngIf="username_ref.errors?.required && username_ref.touched" class="help-block">Username is required.</p>
+        </div>
+        <div class="password">
+          <!-- <label for="password">Your password</label> -->
+          <input [(ngModel)]="password" #password_ref="ngModel" [class.has-error]="password_ref.invalid && password_ref.touched"
+          [class.has-success]="password_ref.valid" name="password" minlength="8" class="u-full-width" type="password" placeholder="Password"
+            id="password">
+          <p *ngIf = "password_ref.errors?.minlength"  class="help-block">Password must be at least 8 characters
+            long.</p>
+        </div>
+        <div class="error-message">
+          <p class="errorMessage"> {{errorMessage}}</p>
+        </div>
+        <div class="register">
+          <!-- <div class="four columns offset-by-six"> -->
+          <input  [disabled]="registerForm.invalid" (click) = "registerEvent()" id="register" class="button-primary"
+            type="submit" value="Signup">
+          <!-- </div> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

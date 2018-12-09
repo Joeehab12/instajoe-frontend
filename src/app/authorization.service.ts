@@ -6,8 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthorizationService {
   constructor(private http: HttpClient) { }
-  getLoginToken(email,password){
-    console.log(this.http.post('http://localhost:8000/login',{email:email,password:password}));
-    return this.http.post('http://localhost:8000/login',{email:email,password:password});
+  getLoginToken(email, password) {
+    return this.http.post('http://localhost:8000/login', { email: email, password: password });
   }
+  registerUser(email, password, fullName, username) {
+    return this.http.post('http://localhost:8000/register', { email: email, password: password, fullName: fullName, username: username });
+  }
+
 }

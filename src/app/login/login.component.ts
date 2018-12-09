@@ -13,11 +13,11 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   token: string;
-  constructor(private authorization: AuthorizationService, private cookie: CookieService,private router: Router) { }
+  constructor(private authorization: AuthorizationService, private cookie: CookieService, private router: Router) { }
 
   myEvent() {
     this.authorization.getLoginToken(this.email, this.password).subscribe(
-      (authorization) => {
+      (authorization: any) => {
         this.token = authorization.token;
         this.cookie.set("token", this.token);
         this.router.navigateByUrl('feed');
@@ -25,7 +25,5 @@ export class LoginComponent implements OnInit {
     );
   }
   ngOnInit() {
-
-
   }
 }
